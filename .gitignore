@@ -1,0 +1,30 @@
+# Compiled binaries
+*.o
+*.out
+*.exe
+*.app
+
+# Default executable names
+a.out
+
+# Debug symbols
+*.dSYM/
+*.dSYM.zip
+
+# Build directories
+build/
+bin/
+
+# Temporary files
+*~
+*.swp
+*.tmp
+
+# Editor / IDE
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
