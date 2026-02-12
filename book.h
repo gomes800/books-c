@@ -10,4 +10,9 @@ typedef struct {
     bool read;
 } Book;
 
+extern Book *map_book;
+
+void addBook(Book book);
+void deleteBook(char *key);
+
 #endif
