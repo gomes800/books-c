@@ -5,10 +5,17 @@
 
 int main() {
 
-    Book b1 = {"20216574", "test book", "tester", true};
+    Book b1 = {"20216574", "beautiful book", "beautiful writer", true};
 
     addBook(b1);
     printf("Book name: %s\n", map_book[0].name);
+
+    Book *b = findBook("20216574");
+    if (b) {
+        printf("%s\n", b->name);
+    }
+
+    deleteBook("20216574");
 
     return 0;
 }

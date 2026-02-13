@@ -14,5 +14,6 @@ extern Book *map_book;
 
 void addBook(Book book);
 void deleteBook(char *key);
+Book *findBook(char *key);
 
 #endif
