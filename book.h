@@ -12,7 +12,7 @@ typedef struct {
 
 extern Book *map_book;
 
-void addBook(Book book);
+void addBook(Book **map_ptr, Book new_book);
 void deleteBook(char *key);
 Book *findBook(char *key);
 

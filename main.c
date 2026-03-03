@@ -1,9 +1,13 @@
+#define _DEFAULT_SOURCE
 #define STB_DS_IMPLEMENTATION
 #include "stb_ds.h"
 #include "book.h"
 #include <stdio.h>
+#include <string.h>
 
 int main() {
+
+    char *tmp;
 
     FILE *f = fopen("data.csv", "r");
 
@@ -17,34 +21,32 @@ int main() {
     fgets(line, sizeof(line), f);
 
     while (fgets(line, sizeof(line), f)) {
-        char id[32];
-        char name[64];
-        char author[64];
-        int read;
+        line[strcspn(line, "\r\n")] = 0;
+        tmp = strtok(line, ";");
+        if (tmp) {
+            Book new;
+            new.key = strdup(tmp);
 
-        if (sscanf(
-                    line,
-                     " %31[^,],%63[^,],%63[^,],%d",
-                     id, name, author, &read
-                  ) == 4) {
-            printf("ID=%s | Name=%s | Author=%s | Read=%d\n",
-                    id, name, author, read);
+            tmp=strtok(NULL, ";");
+            new.name = tmp ? strdup(tmp) : strdup("null");
+
+            tmp = strtok(NULL, ";");
+            new.author = tmp ? strdup(tmp) : strdup("null");
+
+            new.read = false;
+
+            addBook(&map_book, new);
         }
     }
 
     fclose(f);
 
-    Book b1 = {"20216574", "beautiful book", "beautiful writer", true};
-
-    addBook(b1);
     printf("Book name: %s\n", map_book[0].name);
 
-    Book *b = findBook("20216574");
+    Book *b = findBook("20263045");
     if (b) {
         printf("%s\n", b->name);
     }
-
-    deleteBook("20216574");
 
     return 0;
 }

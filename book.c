@@ -4,8 +4,8 @@
 
 Book *map_book = NULL;
 
-void addBook(Book book) {
-    shputs(map_book, book);
+void addBook(Book **map_ptr, Book new_book) {
+    shputs(*map_ptr, new_book);
 }
 
 Book *findBook(char *key) {

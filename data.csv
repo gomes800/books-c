@@ -1,2 +1,4 @@
-id,name,author,read
-20263045,book1,author1,0
+id;name;author;read
+20263045;cats book;author1;0
+20154484;book2;author2;1
+18484844;book3;author3;0
